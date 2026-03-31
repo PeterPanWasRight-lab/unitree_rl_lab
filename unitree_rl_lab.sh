@@ -3,7 +3,7 @@
 export UNITREE_RL_LAB_PATH="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 
 if ! [[ -z "${CONDA_PREFIX}" ]]; then
-    python_exe=${CONDA_PREFIX}/bin/python
+    python_exe=${CONDA_PREFIX}\\python.exe    # windows 和 linux 的路径不同
 else
     echo "[Error] No conda environment activated. Please activate the conda environment first."
     # exit 1
