@@ -194,7 +194,7 @@ class ObservationsCfg:
         """Observations for policy group."""
 
         # observation terms (order preserved)
-        base_ang_vel = ObsTerm(func=mdp.base_ang_vel, scale=0.2, noise=Unoise(n_min=-0.2, n_max=0.2))
+        base_ang_vel = ObsTerm(func=mdp.base_ang_vel, scale=0.2, noise=Unoise(n_min=-0.2, n_max=0.2))  # c:\Users\17547\miniconda3\envs\IsaacLab51\Lib\site-packages\isaaclab\source\isaaclab\isaaclab\envs\mdp\observations.py 第 63~67 行：
         projected_gravity = ObsTerm(func=mdp.projected_gravity, noise=Unoise(n_min=-0.05, n_max=0.05))
         velocity_commands = ObsTerm(func=mdp.generated_commands, params={"command_name": "base_velocity"})
         joint_pos_rel = ObsTerm(func=mdp.joint_pos_rel, noise=Unoise(n_min=-0.01, n_max=0.01))
@@ -240,7 +240,7 @@ class RewardsCfg:
 
     # -- task
     track_lin_vel_xy = RewTerm(
-        func=mdp.track_lin_vel_xy_yaw_frame_exp,
+        func=mdp.track_lin_vel_xy_yaw_frame_exp, 
         weight=1.0,
         params={"command_name": "base_velocity", "std": math.sqrt(0.25)},
     )
@@ -260,7 +260,7 @@ class RewardsCfg:
     energy = RewTerm(func=mdp.energy, weight=-2e-5)
 
     joint_deviation_arms = RewTerm(
-        func=mdp.joint_deviation_l1,
+        func=mdp.joint_deviation_l1,   
         weight=-0.1,
         params={
             "asset_cfg": SceneEntityCfg(
