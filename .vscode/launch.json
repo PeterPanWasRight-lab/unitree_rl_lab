@@ -1,0 +1,159 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        // ==================== G1 机器人 - 速度控制 ====================
+        {
+            "name": "G1-Velocity: train.py",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/scripts/rsl_rl/train.py",
+            "console": "integratedTerminal",
+            "justMyCode": false,
+            "args": [
+                "--task", "Unitree-G1-29dof-Velocity",
+                "--num_envs", "4",
+            ],
+            "python": "C:/Users/17547/miniconda3/envs/IsaacLab51/python.exe"
+        },
+        {
+            "name": "G1-Velocity: zero_agent.py",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/scripts/rsl_rl/zero_agent.py",
+            "console": "integratedTerminal",
+            "justMyCode": false,
+            "args": [
+                "--task", "Unitree-G1-29dof-Velocity",
+                "--num_envs", "4",
+            ],
+            "python": "C:/Users/17547/miniconda3/envs/IsaacLab51/python.exe"
+        },
+
+        // ==================== Go2 机器狗 - 速度控制 ====================
+        {
+            "name": "Go2-Velocity: train.py",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/scripts/rsl_rl/train.py",
+            "console": "integratedTerminal",
+            "justMyCode": false,
+            "args": [
+                "--task", "Unitree-Go2-Velocity",
+                "--num_envs", "4",
+            ],
+            "python": "C:/Users/17547/miniconda3/envs/IsaacLab51/python.exe"
+        },
+        {
+            "name": "Go2-Velocity: zero_agent.py",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/scripts/rsl_rl/zero_agent.py",
+            "console": "integratedTerminal",
+            "justMyCode": false,
+            "args": [
+                "--task", "Unitree-Go2-Velocity",
+                "--num_envs", "4",
+            ],
+            "python": "C:/Users/17547/miniconda3/envs/IsaacLab51/python.exe"
+        },
+
+        // ==================== H1 机器人 - 速度控制 ====================
+        {
+            "name": "H1-Velocity: train.py",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/scripts/rsl_rl/train.py",
+            "console": "integratedTerminal",
+            "justMyCode": false,
+            "args": [
+                "--task", "Unitree-H1-Velocity",
+                "--num_envs", "4",
+            ],
+            "python": "C:/Users/17547/miniconda3/envs/IsaacLab51/python.exe"
+        },
+        {
+            "name": "H1-Velocity: zero_agent.py",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/scripts/rsl_rl/zero_agent.py",
+            "console": "integratedTerminal",
+            "justMyCode": false,
+            "args": [
+                "--task", "Unitree-H1-Velocity",
+                "--num_envs", "4",
+            ],
+            "python": "C:/Users/17547/miniconda3/envs/IsaacLab51/python.exe"
+        },
+
+        // ==================== G1 模仿学习 - 跳舞 ====================
+        {
+            "name": "G1-Mimic-Dance: train.py",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/scripts/rsl_rl/train.py",
+            "console": "integratedTerminal",
+            "justMyCode": false,
+            "args": [
+                "--task", "Unitree-G1-29dof-Mimic-Dance-102",
+                "--num_envs", "4",
+            ],
+            "python": "C:/Users/17547/miniconda3/envs/IsaacLab51/python.exe"
+        },
+        {
+            "name": "G1-Mimic-Dance: zero_agent.py",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/scripts/rsl_rl/zero_agent.py",
+            "console": "integratedTerminal",
+            "justMyCode": false,
+            "args": [
+                "--task", "Unitree-G1-29dof-Mimic-Dance-102",
+                "--num_envs", "4",
+            ],
+            "python": "C:/Users/17547/miniconda3/envs/IsaacLab51/python.exe"
+        },
+
+        // ==================== G1 模仿学习 - 江南Style ====================
+        {
+            "name": "G1-Mimic-Gangnam: train.py",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/scripts/rsl_rl/train.py",
+            "console": "integratedTerminal",
+            "justMyCode": false,
+            "args": [
+                "--task", "Unitree-G1-29dof-Mimic-Gangnanm-Style",
+                "--num_envs", "4",
+            ],
+            "python": "C:/Users/17547/miniconda3/envs/IsaacLab51/python.exe"
+        },
+        {
+            "name": "G1-Mimic-Gangnam: zero_agent.py",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/scripts/rsl_rl/zero_agent.py",
+            "console": "integratedTerminal",
+            "justMyCode": false,
+            "args": [
+                "--task", "Unitree-G1-29dof-Mimic-Gangnanm-Style",
+                "--num_envs", "4",
+            ],
+            "python": "C:/Users/17547/miniconda3/envs/IsaacLab51/python.exe"
+        },
+
+        // ==================== 通用配置（带参数输入） ====================
+        {
+            "name": "通用: 当前文件(带参数输入)",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "justMyCode": false,
+            "args": "${command:pickArgs}",
+            "python": "C:/Users/17547/miniconda3/envs/IsaacLab51/python.exe"
+        },
+    ]
+}
