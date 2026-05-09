@@ -69,16 +69,23 @@ exclude = [
     ".vscode",
 ]
 
-typeCheckingMode = "basic"
+typeCheckingMode = "standard"
 pythonVersion = "3.10"
 pythonPlatform = "Linux"
 enableTypeIgnoreComments = true
 
+# Extra import paths for language server to find modules
+extraPaths = [
+    "source",
+    "c:/Users/17547/miniconda3/envs/IsaacLab51/Lib/site-packages",
+    "c:/Users/17547/miniconda3/envs/IsaacLab51/Lib/site-packages/isaaclab/source"
+]
+
 # This is required as the CI pre-commit does not download the module (i.e. numpy, torch, prettytable)
 # Therefore, we have to ignore missing imports
-reportMissingImports = "none"
+reportMissingImports = "warning"
 # This is required to ignore for type checks of modules with stubs missing.
-reportMissingModuleSource = "none" # -> most common: prettytable in mdp managers
+reportMissingModuleSource = "warning" # -> most common: prettytable in mdp managers
 
 reportGeneralTypeIssues = "none"       # -> raises 218 errors (usage of literal MISSING in dataclasses)
 reportOptionalMemberAccess = "warning" # -> raises 8 errors

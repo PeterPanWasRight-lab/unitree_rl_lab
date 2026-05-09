@@ -100,6 +100,7 @@ def overwrite_python_analysis_extra_paths(isaaclab_settings: str) -> str:
 
         # change the path names to be relative to the Isaac Lab directory
         rel_path = os.path.relpath(ISAACSIM_DIR, PROJECT_DIR)
+        # rel_path = "c:/users/17547/miniconda3/envs/isaaclab51/lib/site-packages/isaacsim"
         path_names = ['"${workspaceFolder}/' + rel_path + "/" + path_name + '"' for path_name in path_names]
     else:
         path_names = []
