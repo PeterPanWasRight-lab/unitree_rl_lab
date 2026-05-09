@@ -24,6 +24,14 @@ UNITREE_ROS_DIR = "D:\\unitree\\unitree_rl_lab\\unitree_ros"  # 模型文件存�
 @configclass
 class UnitreeArticulationCfg(ArticulationCfg):
     """Configuration for Unitree articulations."""
+    
+    """ArticulationCfg：通用“关节体”（机器人）配置基类，定义了所有机器人都可能有的字段，如：
+
+        spawn — 如何生成机器人（URDF / USD 文件路径等）
+
+        init_state — 初始位置、关节角度、关节速度
+
+        actuators — 关节执行器的配置（电机模型、控制参数）"""
 
     joint_sdk_names: list[str] = None
 
@@ -402,8 +410,8 @@ UNITREE_G1_29DOF_CFG = UnitreeArticulationCfg(
         usd_path=f"{UNITREE_MODEL_DIR}/G1/29dof/usd/g1_29dof_rev_1_0/g1_29dof_rev_1_0.usd",
     ),
     init_state=ArticulationCfg.InitialStateCfg(
-        pos=(0.0, 0.0, 0.8),
-        joint_pos={
+        pos=(0.0, 0.0, 0.8),           # 相对于世界坐标系的初始位置（x, y, z）  z = 0.8
+        joint_pos={                    # 这些关节可以用 isaacsim打开USD文件，在右侧stage下的link树中找到
             "left_hip_pitch_joint": -0.1,
             "right_hip_pitch_joint": -0.1,
             ".*_knee_joint": 0.3,
@@ -418,7 +426,7 @@ UNITREE_G1_29DOF_CFG = UnitreeArticulationCfg(
         joint_vel={".*": 0.0},
     ),
     actuators={
-        "N7520-14.3": ImplicitActuatorCfg(
+        "N7520-14.3": ImplicitActuatorCfg(                                             #  N7520-14.3是人为为了好分类，键名未被直接使用：搜索整个项目，没有发现通过 actuators["N7520-14.3"] 等方式硬编码引用这些键的代码
             joint_names_expr=[".*_hip_pitch_.*", ".*_hip_yaw_.*", "waist_yaw_joint"],
             effort_limit_sim=88,
             velocity_limit_sim=32.0,
@@ -430,9 +438,9 @@ UNITREE_G1_29DOF_CFG = UnitreeArticulationCfg(
                 ".*_hip_.*": 2.0,
                 "waist_yaw_joint": 5.0,
             },
-            armature=0.01,
+            armature=0.01,       # 转子惯量 + 齿轮惯量  + 减速比折算   kg·m²   这边都是近似 工程折衷
         ),
-        "N7520-22.5": ImplicitActuatorCfg(
+        "N7520-22.5": ImplicitActuatorCfg(                                  # 如果匹配到USD中多个关节，会同时应用相同的执行器参数
             joint_names_expr=[".*_hip_roll_.*", ".*_knee_.*"],
             effort_limit_sim=139,
             velocity_limit_sim=20.0,
@@ -476,7 +484,7 @@ UNITREE_G1_29DOF_CFG = UnitreeArticulationCfg(
             armature=0.01,
         ),
     },
-    joint_sdk_names=[
+    joint_sdk_names=[      # 虽然USD中已经有相关名字信息，但是USD中的顺序是随机的，这里的意图就是让程序重新按照这个顺序排列所有的关节（主程序中会有相关的代码处理这件事情）
         "left_hip_pitch_joint",
         "left_hip_roll_joint",
         "left_hip_yaw_joint",
