@@ -50,8 +50,8 @@ def orientation_l2(
     # extract the used quantities (to enable type-hinting)
     asset: RigidObject = env.scene[asset_cfg.name]
 
-    desired_gravity = torch.tensor(desired_gravity, device=env.device)
-    cos_dist = torch.sum(asset.data.projected_gravity_b * desired_gravity, dim=-1)  # cosine distance
+    desired_gravity = torch.tensor(desired_gravity, device=env.device)              # type: ignore
+    cos_dist = torch.sum(asset.data.projected_gravity_b * desired_gravity, dim=-1)  # tpye: ignore  # cosine distance
     normalized = 0.5 * cos_dist + 0.5  # map from [-1, 1] to [0, 1]
     return torch.square(normalized)
 

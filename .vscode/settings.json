@@ -1,5 +1,28 @@
 
 {
+    // 变量颜色追踪器
+    "pythonSemanticHighlighter.enable": true,
+    "pythonSemanticHighlighter.debounceMs": 150,
+    "pythonSemanticHighlighter.semanticCategories": {
+        "localVariable": {
+        "enabled": true,
+        "hueRange": [0, 360],
+        "saturation": [40, 60],
+        "lightness": [55, 70]
+        },
+        "parameter": {
+        "enabled": true,
+        "hueRange": [0, 360],
+        "saturation": [45, 65],
+        "lightness": [55, 70]
+        }
+    },
+    "pythonSemanticHighlighter.keywordColors": {
+        "def": "#CC7832",
+        "class": "#CC7832",
+        "return": "#CC7832"
+    },
+    "editor.semanticHighlighting.enabled": true,
     "python-envs.defaultEnvManager": "ms-python.python:conda",
     "python-envs.defaultPackageManager": "ms-python.python:conda",
     "editor.rulers": [120],
@@ -11,9 +34,13 @@
     // Those paths are automatically filled by isaacsim (see: 'python -m isaacsim --help')
     "python.defaultInterpreterPath": "C:/Users/17547/miniconda3/envs/IsaacLab51/python.exe",
     "python.analysis.extraPaths": [
-        "D:/Isaac/IsaacLab/source/isaaclab",
-        "D:/Isaac/IsaacLab/source/isaaclab_assets",
-        "D:/Isaac/IsaacLab/source/isaaclab_tasks",
+        "D:/unitree/unitree_rl_lab/source/unitree_rl_lab",
+        //===============================
+        "C:/Users/17547/miniconda3/envs/IsaacLab51/Lib/site-packages/isaaclab/source/isaaclab",
+        "C:/Users/17547/miniconda3/envs/IsaacLab51/Lib/site-packages/isaaclab/source/isaaclab_assets",
+        "C:/Users/17547/miniconda3/envs/IsaacLab51/Lib/site-packages/isaaclab/source/isaaclab_tasks",
+        "C:/Users/17547/miniconda3/envs/IsaacLab51/Lib/site-packages/isaaclab/source/isaaclab_rl",
+        // ===========================
         "C:/Users/17547/miniconda3/envs/IsaacLab51/Lib/site-packages/isaacsim/kit/kernel/py",
         "C:/Users/17547/miniconda3/envs/IsaacLab51/Lib/site-packages/isaacsim/kit/extscore/omni.client.lib",
         "C:/Users/17547/miniconda3/envs/IsaacLab51/Lib/site-packages/isaacsim/kit/extscore/omni.kit.async_engine",

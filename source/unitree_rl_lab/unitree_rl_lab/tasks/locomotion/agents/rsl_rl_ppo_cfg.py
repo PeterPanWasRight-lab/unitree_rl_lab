@@ -6,7 +6,7 @@
 from isaaclab.utils import configclass
 from isaaclab_rl.rsl_rl import RslRlOnPolicyRunnerCfg, RslRlPpoActorCriticCfg, RslRlPpoAlgorithmCfg
 
-
+# 可以参考rsl_rl库的test里的   def _build_ppo(**overrides: object) -> tuple[PPO, TensorDict]:
 @configclass
 class BasePPORunnerCfg(RslRlOnPolicyRunnerCfg):
     num_steps_per_env = 24
@@ -14,8 +14,10 @@ class BasePPORunnerCfg(RslRlOnPolicyRunnerCfg):
     save_interval = 100
     experiment_name = ""  # same as task name
     empirical_normalization = False
+    obs_groups = {"actor": ["policy"], "critic": ["critic"]}    # 这里和velocity_env_cfg.py里面定义的 policyCFG 相对应
     policy = RslRlPpoActorCriticCfg(
         init_noise_std=1.0,
+        noise_std_type="log",
         actor_hidden_dims=[512, 256, 128],
         critic_hidden_dims=[512, 256, 128],
         activation="elu",

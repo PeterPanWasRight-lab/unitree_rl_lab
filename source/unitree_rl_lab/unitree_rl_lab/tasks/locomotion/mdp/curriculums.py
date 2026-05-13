@@ -13,9 +13,12 @@ def lin_vel_cmd_levels(
     env_ids: Sequence[int],
     reward_term_name: str = "track_lin_vel_xy",
 ) -> torch.Tensor:
-    command_term = env.command_manager.get_term("base_velocity")
-    ranges = command_term.cfg.ranges
-    limit_ranges = command_term.cfg.limit_ranges
+    """
+    先获取当前命令管理器内部属性，然后根据奖励调整线速度命令范围，并把这个命令范围写回命令管理器
+    """
+    command_term = env.command_manager.get_term("base_velocity")  # velocity_env_cfg.py CommandsCfg里面
+    ranges = command_term.cfg.ranges                # type: ignore
+    limit_ranges = command_term.cfg.limit_ranges    # type: ignore
 
     reward_term = env.reward_manager.get_term_cfg(reward_term_name)
     reward = torch.mean(env.reward_manager._episode_sums[reward_term_name][env_ids]) / env.max_episode_length_s

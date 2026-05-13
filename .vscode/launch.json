@@ -31,6 +31,38 @@
             ],
             "python": "C:/Users/17547/miniconda3/envs/IsaacLab51/python.exe"
         },
+        {
+            "name": "G1-Velocity: play.py (默认检查点)",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/scripts/rsl_rl/play.py",
+            "console": "integratedTerminal",
+            "justMyCode": false,
+            "args": [
+                "--task", "Unitree-G1-29dof-Velocity",
+                "--num_envs", "32",
+                "--load_run", "unitree_g1_29dof_velocity",
+                "--checkpoint", "logs/rsl_rl/unitree_g1_29dof_velocity/2026-03-30_14-27-00/model_11800.pt",
+                "--real-time"
+            ],
+            "python": "C:/Users/17547/miniconda3/envs/IsaacLab51/python.exe"
+        },
+        {
+            "name": "G1-Velocity: play.py (视频录制)",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/scripts/rsl_rl/play.py",
+            "console": "integratedTerminal",
+            "justMyCode": false,
+            "args": [
+                "--task", "Unitree-G1-29dof-Velocity",
+                "--num_envs", "4",
+                "--video",
+                "--video_length", "200",
+                "--checkpoint", "logs/rsl_rl/unitree_g1_29dof_velocity/latest"
+            ],
+            "python": "C:/Users/17547/miniconda3/envs/IsaacLab51/python.exe"
+        },
 
         // ==================== Go2 机器狗 - 速度控制 ====================
         {
